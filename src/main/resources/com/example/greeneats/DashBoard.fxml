@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/21.0.8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <!-- Header -->
+      <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-padding: 15;">
+         <children>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Dashboard" />
+            <Region HBox.hgrow="ALWAYS" />
+            <!-- User avatar placeholder -->
+            <Label style="-fx-font-size: 20px;" text="👤" />
+         </children>
+      </HBox>
+
+      <!-- Statistics Cards -->
+      <HBox spacing="20.0" style="-fx-padding: 20;">
+         <children>
+            <!-- Average Calorie Intake Card -->
+            <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
+               <children>
+                  <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Average Calorie Intake" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="1500 cal">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+
+            <!-- Title Card 1 -->
+            <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
+               <children>
+                  <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Title" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="2,405">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+
+            <!-- Title Card 2 -->
+            <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
+               <children>
+                  <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Title" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="10,353">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <!-- Main Content Area -->
+      <HBox spacing="20.0" style="-fx-padding: 0 20 20 20;" VBox.vgrow="ALWAYS">
+         <children>
+            <!-- Diet Distribution Chart -->
+            <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 400;" HBox.hgrow="ALWAYS">
+               <children>
+                  <PieChart fx:id="dietChart" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </PieChart>
+                  <Label alignment="CENTER" maxWidth="Infinity" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #666666;" text="DIET DISTRIBUTION" />
+               </children>
+            </VBox>
+
+            <!-- Right Side Content -->
+            <VBox spacing="10.0" style="-fx-min-width: 300;" HBox.hgrow="ALWAYS">
+               <!-- Placeholder for additional content (like the dots/progress indicators) -->
+               <VBox prefHeight="80.0" prefWidth="300.0" spacing="15.0" style="-fx-padding: 20;">
+                  <children>
+                     <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+                           <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
+                        </children>
+                     </StackPane>
+                     <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
+                     <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+                           <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
+                        </children>
+                     </StackPane>
+                     <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
+                     <StackPane prefHeight="150.0" prefWidth="200.0">
+                        <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+                           <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
+                        </children>
+                     </StackPane>
+                     <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
+                  </children>
+               </VBox>
+            </VBox>
+         </children>
+      </HBox>
+
+                           <!-- Data Table Section -->
+      <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-margin: 0 20 20 20;" VBox.vgrow="ALWAYS">
+         <children>
+            <!-- Tab Navigation -->
+            <HBox spacing="20.0" style="-fx-padding: 0 0 15 0;">
+               <children>
+                  <Label style="-fx-font-size: 14px; -fx-text-fill: #333333;" styleClass="app-title" text="Order History" />
+               </children>
+            </HBox>
+
+                                 <!-- Table -->
+            <TableView fx:id="nutritionTable" style="-fx-border-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="sourceColumn" prefWidth="150.0" text="Item" />
+                  <TableColumn fx:id="nutritionalValueColumn" prefWidth="150.0" text="Nutritional Value" />
+                  <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price" />
+                  <TableColumn fx:id="priceColumn1" prefWidth="100.0" text="Date" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

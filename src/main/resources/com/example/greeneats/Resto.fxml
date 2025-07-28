@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="1100.0" prefWidth="1200.0" style="-fx-background-color: linear-gradient(to bottom, #f8fafc, #e2e8f0);" stylesheets="@../../../styles.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.HelloController">
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+
+   <children>
+      <!-- Header Section -->
+      <VBox spacing="10.0">
+         <children>
+            <Label style="-fx-text-fill: #1a202c; -fx-font-family: 'System Bold';" text="Featured Restaurants">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label style="-fx-text-fill: #718096;" text="Discover Restaurants within and around DLSU MANILA!">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </VBox>
+
+      <!-- Hero Card Row -->
+      <HBox prefHeight="220.0" spacing="20.0">
+         <children>
+            <!-- Large Featured Card -->
+            <StackPane prefWidth="570.0" style="-fx-cursor: hand;">
+               <children>
+                  <!-- Card Background -->
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="220.0" width="570.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="8.0" radius="20.0" />
+                     </effect>
+                  </Rectangle>
+
+                  <!-- Background Image -->
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="220.0" fitWidth="570.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/lounge.jpg" />
+                           </image>
+                        </ImageView>
+                        <!-- Gradient Overlay -->
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="570.0" />
+                     </children>
+                  </StackPane>
+
+                  <!-- Content Layer -->
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="220.0" prefWidth="570.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Perico's Lounge">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </padding>
+                  </VBox>
+
+                              <!-- Invisible Button for Click Handling -->
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="200.0" prefWidth="588.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" height="220.0" width="570.0" />
+               </clip>
+            </StackPane>
+
+                  <!-- Side Card -->
+            <StackPane prefWidth="550.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="220.0" width="550.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="8.0" radius="20.0" />
+                     </effect>
+                  </Rectangle>
+
+                        <StackPane>
+                     <children>
+                        <ImageView fitHeight="220.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/perico.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="550.0" />
+                     </children>
+                  </StackPane>
+
+                        <VBox alignment="BOTTOM_LEFT" prefHeight="220.0" prefWidth="550.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Kitchen City">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </padding>
+                  </VBox>
+
+                              <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="220.0" prefWidth="550.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" height="220.0" width="550.0" />
+               </clip>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+
+      <!-- Secondary Row -->
+      <HBox prefHeight="180.0" spacing="20.0">
+         <children>
+            <!-- Medium Card 1 -->
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/restaurant.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="The Barn">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+
+            <!-- Medium Card 2 -->
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/perico.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Spice Route">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+
+            <!-- Medium Card 3 -->
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/lounge.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Ocean View">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="220.0" spacing="20.0">
+         <children>
+            <StackPane prefWidth="570.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="220.0" width="570.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="8.0" radius="20.0" />
+                     </effect>
+                  </Rectangle>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="220.0" fitWidth="570.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/lounge.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="570.0" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="220.0" prefWidth="570.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Perico's Lounge">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </padding>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="200.0" prefWidth="588.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" height="220.0" width="570.0" />
+               </clip>
+            </StackPane>
+            <StackPane prefWidth="550.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="220.0" width="550.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="8.0" radius="20.0" />
+                     </effect>
+                  </Rectangle>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="220.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/perico.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="550.0" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="220.0" prefWidth="550.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Kitchen City">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </padding>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="220.0" prefWidth="550.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="25.0" arcWidth="25.0" height="220.0" width="550.0" />
+               </clip>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="180.0" spacing="20.0">
+         <children>
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/restaurant.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="The Barn">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/perico.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Spice Route">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+            <StackPane prefWidth="365.0" style="-fx-cursor: hand;">
+               <children>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="180.0" width="365.0">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="6.0" radius="15.0" />
+                     </effect>
+                  </Rectangle>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="180.0" fitWidth="365.0" pickOnBounds="true" preserveRatio="false">
+                           <image>
+                              <Image url="@../../../image/lounge.jpg" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="linear-gradient(to bottom, transparent 50%, #00000075)" height="180.0" width="365.0" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="180.0" prefWidth="365.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="Ocean View">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                 </effect>
+                              </Label>
+                              <StackPane style="-fx-background-color: #10b981; -fx-background-radius: 12;">
+                                 <children>
+                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+                  <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="180.0" prefWidth="365.0" />
+               </children>
+               <clip>
+                  <Rectangle arcHeight="20.0" arcWidth="20.0" height="180.0" width="365.0" />
+               </clip>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
