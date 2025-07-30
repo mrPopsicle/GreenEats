@@ -7,8 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -33,6 +35,19 @@ public class HelloController implements Initializable {
     private AnchorPane anchorPane;
     @FXML
     private VBox vBox;
+
+    //SignIn Page
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField passwordField;
+
+
+    //SignUpPage
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
 
 
     private BorderPane sidebarPane;  // keep reference
@@ -78,32 +93,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    @FXML
-    protected void onSignInClicked(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greeneats/SideBar.fxml"));
-            BorderPane sidebar = loader.load();
 
-
-            HelloController controller = loader.getController();
-
-            Parent content = FXMLLoader.load(getClass().getResource("/com/example/greeneats/HomePage.fxml"));
-            controller.contentPane.setContent(content);
-
-
-            String css = getClass().getResource("/styles.css").toExternalForm();
-            sidebar.getStylesheets().add(css);
-
-            stackPane.getChildren().clear();
-            stackPane.getChildren().add(sidebar);
-
-            sidebarPane = sidebar;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void setContent(Parent pane) {
+        contentPane.setContent(pane);
     }
-
 
     @FXML
     protected void onSignUpClicked(ActionEvent event) throws IOException {
