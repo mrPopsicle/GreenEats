@@ -1,13 +1,14 @@
-package com.example.greeneats;
+package com.example.greeneats.controller;
 
+import com.example.greeneats.GreenEatsApp;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -17,12 +18,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class GreenEatsController implements Initializable {
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -53,6 +55,10 @@ public class HelloController implements Initializable {
     private BorderPane sidebarPane;  // keep reference
     // For tracking active button
     private Button activeButton;
+
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -145,6 +151,19 @@ public class HelloController implements Initializable {
         if (scrollPane != null) {
             scrollPane.setContent(pane);
         }
+    }
+
+    @FXML
+    protected void addToCartClicked(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(GreenEatsApp.class.getResource("AddToCart.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Add to Cart");
+        popupStage.setScene(new Scene(root));
+        popupStage.setResizable(false);
+        popupStage.showAndWait();
+
     }
 
     @FXML

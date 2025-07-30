@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 class CsvUserService extends UserService {
-    private static final String RESOURCE_CSV_FILE = "/users.csv";
     private static final String EXTERNAL_CSV_FILE = "users_external.csv";
     private static final String DELIMITER = ",";
 
@@ -21,7 +20,6 @@ class CsvUserService extends UserService {
     protected void loadUsers() {
         users.clear();
 
-        // First try external file
         if (Files.exists(externalFilePath)) {
             try (BufferedReader br = Files.newBufferedReader(externalFilePath)) {
                 String line;
@@ -44,36 +42,12 @@ class CsvUserService extends UserService {
             }
         }
 
-        try (InputStream is = getClass().getResourceAsStream(RESOURCE_CSV_FILE)) {
-            if (is == null) {
-                initializeDefaultUsersFile();
-                return;
-            }
 
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] userData = line.split(DELIMITER);
-                    if (userData.length >= 4) {
-                        User user = new User(
-                                userData[0].trim(),
-                                userData[1].trim(),
-                                userData[2].trim(),
-                                userData[3].trim()
-                        );
-                        users.put(user.getUsername().toLowerCase(), user);
-                    }
-                }
-                System.out.println("Loaded " + users.size() + " users from resource file.");
-            }
-        } catch (IOException e) {
-            System.err.println("Error loading users from resource: " + e.getMessage());
-        }
     }
+
 
     @Override
     protected boolean saveUsers() {
-        // Always save to external file only
         try (BufferedWriter bw = Files.newBufferedWriter(externalFilePath)) {
             writeUsersToFile(bw);
             System.out.println("Saved users to external file: " + externalFilePath);

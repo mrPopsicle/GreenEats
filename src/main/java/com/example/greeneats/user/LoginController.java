@@ -1,6 +1,6 @@
 package com.example.greeneats.user;
 
-import com.example.greeneats.HelloController;
+import com.example.greeneats.controller.GreenEatsController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -43,7 +43,7 @@ public class LoginController {
             BorderPane sidebar = loader.load();
             Parent content = FXMLLoader.load(getClass().getResource("/com/example/greeneats/HomePage.fxml"));
 
-            HelloController controller = loader.getController();
+            GreenEatsController controller = loader.getController();
             controller.setContent(content);
 
             stackPane.getChildren().clear();

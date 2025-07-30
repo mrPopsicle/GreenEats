@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1100.0" prefWidth="1200.0" style="-fx-background-color: linear-gradient(to bottom, #f8fafc, #e2e8f0);" stylesheets="@../../../styles.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.HelloController">
+<VBox prefHeight="1100.0" prefWidth="1200.0" style="-fx-background-color: linear-gradient(to bottom, #f8fafc, #e2e8f0);" stylesheets="@../../../styles.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.controller.GreenEatsController">
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>

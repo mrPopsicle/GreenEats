@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1269.0" prefWidth="1260.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/21.0.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.HelloController">
+<VBox prefHeight="1269.0" prefWidth="1260.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.controller.GreenEatsController">
     <children>
         <!-- Header Section -->
         <HBox alignment="CENTER_LEFT" prefHeight="80.0" style="-fx-background-color: white; -fx-border-width: 0 0 1 0; -fx-border-color: #e2e8f0;">
@@ -30,19 +30,21 @@
                 </Label>
 
                 <!-- Spacer -->
-                <VBox HBox.hgrow="ALWAYS" />
+                <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Button prefHeight="47.0" prefWidth="88.0" style="-fx-background-color: transparent; -fx-text-fill: #4a5568; -fx-font-size: 16px;" text=" Cart">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children></VBox>
 
-                <!-- Cart Button -->
+                      <!-- Cart Button -->
                 <Button style="-fx-background-color: transparent; -fx-text-fill: #4a5568; -fx-font-size: 16px;" text="₱ Price Filter">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Button>
-            <Button style="-fx-background-color: transparent; -fx-text-fill: #4a5568; -fx-font-size: 16px;" text="🛒 Cart">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
             </children>
             <padding>
                 <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
@@ -52,7 +54,7 @@
         <!-- Navigation Section -->
         <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="30.0" style="-fx-background-color: white;">
             <children>
-                <Button fx:id="healthyOptionsBtn" style="-fx-background-color: transparent; -fx-text-fill: #2d3748; -fx-font-family: 'System Bold'; -fx-border-width: 0 0 2 0;" text="Healthy Options">
+                <Button fx:id="healthyOptionsBtn" style="-fx-background-color: transparent;" text="Healthy Options">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -113,7 +115,7 @@
                                                         <Font size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                                <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
@@ -165,7 +167,7 @@
                                                         <Font size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                                <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
@@ -217,7 +219,7 @@
                                                         <Font size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                                <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
@@ -269,7 +271,7 @@
                                                         <Font size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                                <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                                     <font>
                                                         <Font size="14.0" />
                                                     </font>
@@ -321,7 +323,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -369,7 +371,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -417,7 +419,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -465,7 +467,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -517,7 +519,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -565,7 +567,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -613,7 +615,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -661,7 +663,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
+                                    <Button onAction="#addToCartClicked" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-background-radius: 8;" text="Add to Cart">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
