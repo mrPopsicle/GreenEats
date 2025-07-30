@@ -1,4 +1,4 @@
-package com.example.greeneats;
+package com.example.greeneats.user;
 
 public class User {
     private String username;

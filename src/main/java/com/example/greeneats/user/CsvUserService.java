@@ -1,4 +1,4 @@
-package com.example.greeneats;
+package com.example.greeneats.user;
 
 import java.io.*;
 import java.nio.file.Files;

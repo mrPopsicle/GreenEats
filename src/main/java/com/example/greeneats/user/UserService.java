@@ -1,6 +1,4 @@
-package com.example.greeneats;
-
-import com.example.greeneats.User;
+package com.example.greeneats.user;
 
 import java.util.HashMap;
 import java.util.Map;

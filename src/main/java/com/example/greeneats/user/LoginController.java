@@ -1,5 +1,6 @@
-package com.example.greeneats;
+package com.example.greeneats.user;
 
+import com.example.greeneats.HelloController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -10,7 +11,7 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class LoginController {
-    private final UserService userService = new CsvUserService(); // Use composition
+    private final UserService userService = new CsvUserService();
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
