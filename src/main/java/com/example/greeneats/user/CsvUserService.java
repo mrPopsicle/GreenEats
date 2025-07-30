@@ -44,7 +44,6 @@ class CsvUserService extends UserService {
             }
         }
 
-        // If no external file, load from resource inside JAR
         try (InputStream is = getClass().getResourceAsStream(RESOURCE_CSV_FILE)) {
             if (is == null) {
                 initializeDefaultUsersFile();
