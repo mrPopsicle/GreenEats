@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LogInPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(HelloApplication.class.getResource("/styles.css").toExternalForm());
-        stage.setTitle("GreenEats by LBYCPEI");
+        stage.setTitle("GreenEats");
         stage.setScene(scene);
         stage.show();
     }
