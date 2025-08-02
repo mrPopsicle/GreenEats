@@ -1,28 +1,33 @@
 package com.example.greeneats.controller;
 
 import com.example.greeneats.GreenEatsApp;
+import com.example.greeneats.model.MenuItem;
+import com.example.greeneats.user.UserSession;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.example.greeneats.user.LoginController.showAlert;
 
 public class GreenEatsController implements Initializable {
     @FXML
@@ -56,72 +61,99 @@ public class GreenEatsController implements Initializable {
     // For tracking active button
     private Button activeButton;
 
+    @FXML
+    private VBox menuContainer;
 
-
+    @FXML
+    private GridPane grid;
+    //for testing
+    private final List<MenuItem> menuItems = new ArrayList<>();
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
 
-        // Initialize pie chart only if it exists
-        if (pieChart != null) {
-            ObservableList<PieChart.Data> pieChartData =
-                    FXCollections.observableArrayList(
-                            new PieChart.Data("Chicken", 14),
-                            new PieChart.Data("Pizza", 14),
-                            new PieChart.Data("Beef", 20),
-                            new PieChart.Data("Salads", 50)
-                    );
-            pieChart.setData(pieChartData);
-            pieChart.setTitle("Food Distribution");
-        }
-
+//
+//        if (pieChart != null) {
+//            ObservableList<PieChart.Data> pieChartData =
+//                    FXCollections.observableArrayList(
+//                            new PieChart.Data("Chicken", 14),
+//                            new PieChart.Data("Pizza", 14),
+//                            new PieChart.Data("Beef", 20),
+//                            new PieChart.Data("Salads", 50)
+//                    );
+//            pieChart.setData(pieChartData);
+//            pieChart.setTitle("Food Distribution");
 
 
     }
 
-    private void loadModernStyles() {
+    public void postInitialize() {
+        loadTestMenuItems();
         try {
-            String css = getClass().getResource("/com/example/greeneats/styles.css").toExternalForm();
-
-            if (stackPane != null) {
-                stackPane.getStylesheets().add(css);
-                stackPane.getStyleClass().add("main-container");
-            }
-
-            if (borderPane != null) {
-                borderPane.getStylesheets().add(css);
-                borderPane.getStyleClass().add("main-container");
-            }
-        } catch (Exception e) {
-            System.out.println("Could not load modern styles: " + e.getMessage());
+            populateGrid();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
+    private void loadTestMenuItems(){
+        menuItems.add(new MenuItem("Chicken", 150.0, "Crispy fried chicken", 500, "Best Sellers", "/image/bowld/2pc_chicken.jpg"));
+        menuItems.add(new MenuItem("Salad", 120.0, "Fresh veggie salad", 200, "Healthy Options", "/image/lettuce.jpg"));
+    }
+    private void populateGrid() throws IOException {
+        int column = 0;
+        int row = 0;
+
+        for (MenuItem item : menuItems) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greeneats/MenuItemCard.fxml"));
+            StackPane card = loader.load();
+
+            CardController controller = loader.getController();
+            controller.setData(item);
+
+            grid.add(card, column, row);
+            column++;
+            if (column == 3) {
+                column = 0;
+                row++;
+            }
+        }
+    }
+
+    @FXML
+    protected void onLogOutClick(ActionEvent  event) throws IOException {
+        UserSession.getInstance().isLoggedIn();
+        UserSession.getInstance().getCurrentUsername();
+
+        UserSession.getInstance().logout();
+
+        UserSession.getInstance().isLoggedIn();
+
+        try {
+            Parent loginScreen = FXMLLoader.load(getClass().getResource("/com/example/greeneats/LogInPage.fxml"));
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.getScene().setRoot(loginScreen);
+
+            System.out.println("Successfully navigated back to login screen.");
+        } catch (IOException e) {
+            showAlert("Error loading login screen: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 
     public void setContent(Parent pane) {
         contentPane.setContent(pane);
     }
 
-    @FXML
-    protected void onSignUpClicked(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greeneats/CreateAnAccount.fxml"));
-            Parent sidebarPane = loader.load();
 
-
-            stackPane.getChildren().clear();
-            stackPane.getChildren().add(sidebarPane);
-        } catch (IOException e) {
-            System.err.println("Error loading SideBar.fxml: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     protected void onExitClicked(ActionEvent event) {
-        // Add smooth exit animation if desired
         Platform.exit();
     }
 
@@ -145,13 +177,19 @@ public class GreenEatsController implements Initializable {
     }
     @FXML
     protected void onRestoClicked(ActionEvent event) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("/com/example/greeneats/Menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greeneats/Menu.fxml"));
+        Parent pane = loader.load();
+
+        GreenEatsController controller = loader.getController();
+        controller.postInitialize();
+
         Button sourceButton = (Button) event.getSource();
         ScrollPane scrollPane = (ScrollPane) sourceButton.getScene().lookup("#contentPane");
         if (scrollPane != null) {
             scrollPane.setContent(pane);
         }
     }
+
 
     @FXML
     protected void addToCartClicked(ActionEvent event) throws IOException {

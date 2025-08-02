@@ -87,4 +87,20 @@ public class Cart {
         sb.append("Total: ").append(getFormattedTotal());
         return sb.toString();
     }
+
+
+    public static String generateItemsSummary(List<CartItem> cartItems) {
+        StringBuilder sb = new StringBuilder();
+        for (CartItem item : cartItems) {
+            sb.append(item.getMenuItem().getName())
+                    .append(" x")
+                    .append(item.getQuantity())
+                    .append("; ");
+        }
+        if (sb.length() > 2) {
+            sb.setLength(sb.length() - 2);
+        }
+        return sb.toString();
+    }
+
 }

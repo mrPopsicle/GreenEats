@@ -1,8 +1,10 @@
 package com.example.greeneats.model;
-
+//Receipt
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
+//For OrderHistory and Receipt
 public class Order {
     private String username;
     private String orderId;
@@ -27,6 +29,8 @@ public class Order {
         this.itemsSummary = itemsSummary;
         this.totalAmount = totalAmount;
     }
+
+
 
     // Getters
     public String getUsername() { return username; }

@@ -3,9 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,129 +13,68 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/21.0.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.controller.GreenEatsController">
+<VBox stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.greeneats.controller.GreenEatsController">
     <children>
         <!-- Header -->
         <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #f8f9fa; -fx-padding: 15;">
             <children>
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Welcome to Greeneats!" />
                 <Region HBox.hgrow="ALWAYS" />
-            <MenuButton mnemonicParsing="false" text="Username">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Settings" />
-                <MenuItem mnemonicParsing="false" text="Log out" />
-              </items>
-            </MenuButton>
-            </children>
-        </HBox>
-
-        <!-- Statistics Cards -->
-        <HBox spacing="20.0" style="-fx-padding: 20;">
-            <children>
-                <!-- Average Calorie Intake Card -->
-                <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
-                    <children>
-                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Your Favorite Restaurant!" />
-                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="SampleResto">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                        </Label>
-                    </children>
-                </VBox>
-
-                <!-- Title Card 1 -->
-                <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
-                    <children>
-                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Average Cal. Intake" />
-                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="2,405">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                        </Label>
-                    </children>
-                </VBox>
-
-                <!-- Title Card 2 -->
-                <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
-                    <children>
-                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Placeholder" />
-                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="10,353">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                        </Label>
-                    </children>
-                </VBox>
-            <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
-               <children>
-                  <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Placeholder" />
-                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="10,353">
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
+            <Button mnemonicParsing="false" onAction="#onLogOutClick" text="Log out" />
             </children>
         </HBox>
 
         <!-- Main Content Area -->
-        <HBox spacing="20.0" style="-fx-padding: 0 20 20 20;" VBox.vgrow="ALWAYS">
+        <HBox alignment="CENTER" prefWidth="600.0" spacing="20.0" style="-fx-padding: 0 20 20 20;" VBox.vgrow="ALWAYS">
             <children>
                 <!-- Diet Distribution Chart -->
-                <VBox style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 400;" HBox.hgrow="ALWAYS">
+                <VBox prefHeight="289.0" prefWidth="500.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 400;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Restaurant of the day!" />
-                  <StackPane prefHeight="220.0" prefWidth="375.0" style="-fx-cursor: hand;">
+                  <Label alignment="TOP_LEFT" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Restaurant of the day!" />
+                  <StackPane alignment="CENTER_RIGHT" prefHeight="220.0" prefWidth="375.0" style="-fx-cursor: hand;">
                      <children>
-                        <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="220.0" width="570.0">
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" color="#00000015" offsetY="8.0" radius="20.0" />
-                           </effect>
-                        </Rectangle>
                         <StackPane>
                            <children>
-                              <ImageView fitHeight="220.0" fitWidth="570.0" pickOnBounds="true" preserveRatio="false">
+                              <ImageView fitHeight="227.0" fitWidth="939.0" pickOnBounds="true" preserveRatio="false">
                                  <image>
                                     <Image url="@../../../image/lounge.jpg" />
                                  </image>
                               </ImageView>
-                              <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="570.0" />
+                              <Rectangle arcHeight="25.0" arcWidth="25.0" fill="linear-gradient(to bottom, transparent 40%, #00000080)" height="220.0" width="938.0" />
+                              <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="213.0" prefWidth="888.0" />
+                              <VBox alignment="BOTTOM_LEFT" prefHeight="227.0" prefWidth="442.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="605.0" spacing="10.0">
+                                       <children>
+                                          <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="RestoName">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                             <effect>
+                                                <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
+                                             </effect>
+                                          </Label>
+                                          <StackPane style="-fx-background-radius: 12;" styleClass="exit-button">
+                                             <children>
+                                                <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
+                                                   <font>
+                                                      <Font size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
+                                             </padding>
+                                          </StackPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </padding>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <VBox alignment="BOTTOM_LEFT" prefHeight="220.0" prefWidth="570.0">
-                           <children>
-                              <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                 <children>
-                                    <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="What's Hot?">
-                                       <font>
-                                          <Font size="36.0" />
-                                       </font>
-                                       <effect>
-                                          <DropShadow blurType="GAUSSIAN" color="#00000080" radius="3.0" />
-                                       </effect>
-                                    </Label>
-                                    <StackPane style="-fx-background-radius: 12;" styleClass="exit-button">
-                                       <children>
-                                          <Label style="-fx-text-fill: white; -fx-font-family: 'System Bold';" text="OPEN">
-                                             <font>
-                                                <Font size="12.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="6.0" left="12.0" right="12.0" top="6.0" />
-                                       </padding>
-                                    </StackPane>
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                           </padding>
-                        </VBox>
-                        <Button mnemonicParsing="false" onAction="#onRestoClicked" opacity="0.0" prefHeight="200.0" prefWidth="588.0" />
                      </children>
                      <clip>
                         <Rectangle arcHeight="25.0" arcWidth="25.0" height="220.0" width="570.0" />
@@ -147,34 +83,11 @@
                </children>
                 </VBox>
 
-                      <!-- Right Side Content -->
-                <VBox spacing="10.0" style="-fx-min-width: 300;" HBox.hgrow="ALWAYS">
-                    <!-- Placeholder for additional content (like the dots/progress indicators) -->
-                    <VBox prefHeight="80.0" prefWidth="300.0" spacing="15.0" style="-fx-padding: 20;">
-                        <children>
-                            <StackPane prefHeight="150.0" prefWidth="200.0">
-                                <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
-                                    <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
-                                </children>
-                            </StackPane>
-                            <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
-                            <StackPane prefHeight="150.0" prefWidth="200.0">
-                                <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
-                                    <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
-                                </children>
-                            </StackPane>
-                            <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
-                            <StackPane prefHeight="150.0" prefWidth="200.0">
-                                <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f6b2e" height="49.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
-                                    <ProgressBar prefHeight="28.0" prefWidth="260.0" progress="0.0" />
-                                </children>
-                            </StackPane>
-                            <Label prefHeight="22.0" prefWidth="58.0" text="Label" />
-                        </children>
-                    </VBox>
+                                                                            <!-- Title Card 1 -->
+                <VBox prefHeight="296.0" prefWidth="310.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20; -fx-min-width: 200;">
+                    <children>
+                  <Label alignment="TOP_LEFT" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Specialty" />
+                    </children>
                 </VBox>
             </children>
         </HBox>
@@ -184,7 +97,7 @@
                <children>
                   <StackPane prefHeight="247.0" prefWidth="489.0">
                      <children>
-                        <Label alignment="TOP_LEFT" prefHeight="299.0" prefWidth="483.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Featured Something" />
+                        <Label alignment="TOP_LEFT" prefHeight="299.0" prefWidth="483.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Featured Drink" />
                         <Button mnemonicParsing="false" opacity="0.0" prefHeight="376.0" prefWidth="512.0" text="Button" />
                      </children>
                   </StackPane>
@@ -194,7 +107,7 @@
                <children>
                   <StackPane prefHeight="247.0" prefWidth="489.0">
                      <children>
-                        <Label alignment="TOP_LEFT" prefHeight="388.0" prefWidth="544.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Featured Something" />
+                        <Label alignment="TOP_LEFT" prefHeight="388.0" prefWidth="544.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Featured Dish" />
                         <Button mnemonicParsing="false" opacity="0.0" prefHeight="376.0" prefWidth="512.0" text="Button" />
                      </children>
                   </StackPane>

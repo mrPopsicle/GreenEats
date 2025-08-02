@@ -26,4 +26,8 @@ abstract class UserService {
         User user = users.get(username.toLowerCase());
         return user != null && user.getPassword().equals(password);
     }
+    public User getUserByUsername(String username) {
+        return users.get(username.toLowerCase());
+    }
+
 }

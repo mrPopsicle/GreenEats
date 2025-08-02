@@ -7,27 +7,25 @@ public class CartItem {
     private int quantity;
     private double totalPrice;
 
-    // Default constructor
+
     public CartItem() {
         this.quantity = 1;
         this.totalPrice = 0.0;
     }
 
-    // Main constructor
     public CartItem(MenuItem menuItem) {
         this.menuItem = menuItem;
         this.quantity = 1;
         calculateTotalPrice();
     }
 
-    // Constructor with quantity
+
     public CartItem(MenuItem menuItem, int quantity) {
         this.menuItem = menuItem;
         this.quantity = Math.max(1, quantity);
         calculateTotalPrice();
     }
 
-    // Simple price calculation
     private void calculateTotalPrice() {
         if (menuItem != null) {
             totalPrice = menuItem.getPrice() * quantity;
@@ -77,7 +75,13 @@ public class CartItem {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
 
         CartItem cartItem = (CartItem) obj;
         return quantity == cartItem.quantity &&

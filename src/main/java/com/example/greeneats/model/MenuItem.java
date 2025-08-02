@@ -1,5 +1,6 @@
 package com.example.greeneats.model;
 
+
 import java.util.Objects;
 
 public class MenuItem {
@@ -7,13 +8,18 @@ public class MenuItem {
     private double price;
     private String description;
     private double calories;
+    private String category;
+    private String image;
 
 
-    public MenuItem(String name, double price, String description, double calories) {
+    public MenuItem(String name, double price, String description, double calories, String category, String image) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.calories = calories;
+        this.category = category;
+        this.image = image;
+
     }
 
     // Getters and Setters
@@ -29,17 +35,27 @@ public class MenuItem {
     public double getCalories() { return calories; }
     public void setCalories(double calories) { this.calories = calories; }
 
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
+
+    public String getCategory() {return category;}
+
+    public void setCategory(String category) {this.category = category;}
+
     // For price format
     public String getFormattedPrice() {
         return String.format("₱%.2f", price);
     }
 
+    public boolean equals(MenuItem other) {
+        return other != null && this.name.equals(other.name);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        MenuItem menuItem = (MenuItem) obj;
-        return Objects.equals(name, menuItem.name);
+        if (!(obj instanceof MenuItem)) return false;
+        return equals((MenuItem) obj); // reuse your own method
     }
 
     @Override

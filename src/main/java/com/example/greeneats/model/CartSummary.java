@@ -1,29 +1,23 @@
 package com.example.greeneats.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CartSummary {
-    private int totalItems;
-    private int totalQuantity;
-    private double total;
-    private Map<String, Integer> categoryCounts;
-    private Map<String, Double> categoryTotals;
+    private final Map<String, Integer> categoryCount = new HashMap<>();
+    private double totalCalories;
+    private double totalPrice;
 
-    public CartSummary(int totalItems, int totalQuantity, double total, Map<String, Integer> categoryCounts,
-                       Map<String, Double> categoryTotals) {
-        this.totalItems = totalItems;
-        this.totalQuantity = totalQuantity;
-        this.total = total;
-        this.categoryCounts = categoryCounts;
-        this.categoryTotals = categoryTotals;
+    public void addItem(String category, double calories) {
+        categoryCount.put(category, categoryCount.getOrDefault(category, 0) + 1);
+        totalCalories += calories;
     }
 
-    // Getters
-    public int getTotalItems() { return totalItems; }
-    public int getTotalQuantity() { return totalQuantity; }
-    public double getTotal() { return total; }
-    public Map<String, Integer> getCategoryCounts() { return categoryCounts; }
-    public Map<String, Double> getCategoryTotals() { return categoryTotals; }
+    public Map<String, Integer> getCategoryCount() {
+        return categoryCount;
+    }
 
-    public String getFormattedTotal() { return String.format("₱%.2f", total); }
+    public double getTotalCalories() {
+        return totalCalories;
+    }
 }

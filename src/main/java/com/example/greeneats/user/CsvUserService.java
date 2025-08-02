@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 class CsvUserService extends UserService {
-    private static final String EXTERNAL_CSV_FILE = "users_external.csv";
+    private static final String EXTERNAL_CSV_FILE = "data/users_external.csv";
     private static final String DELIMITER = ",";
 
     private final Path externalFilePath;

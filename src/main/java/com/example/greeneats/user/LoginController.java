@@ -33,10 +33,20 @@ public class LoginController {
             return;
         }
 
-        if (!userService.validateUser(username, password)) {
+        User user = userService.getUserByUsername(username);
+
+        if (user == null || !user.getPassword().equals(password)) {
             showAlert("Invalid credentials.");
             return;
         }
+
+        // Log user in and print session info
+        UserSession.getInstance().loginUser(user);
+
+
+        UserSession.getInstance().isLoggedIn();
+        UserSession.getInstance().getCurrentUsername();
+        UserSession.getInstance().getCurrentUser();
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/greeneats/SideBar.fxml"));
@@ -54,6 +64,8 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
+
 
     @FXML
     protected void onSignUpConfirmClicked(ActionEvent event) {
@@ -81,7 +93,7 @@ public class LoginController {
         }
     }
 
-    private void showAlert(String message) {
+    public static void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText(null);
         alert.setContentText(message);

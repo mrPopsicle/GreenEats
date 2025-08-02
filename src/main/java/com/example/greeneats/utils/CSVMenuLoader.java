@@ -29,14 +29,16 @@ public class CSVMenuLoader {
 
                 String[] values = line.split(",");
 
-                if (values.length >= 4) {
+                if (values.length >= 5) {
                     try {
                         String name = values[0].trim();
                         double price = Double.parseDouble(values[1].trim());
                         String description = values[2].trim();
                         double calories = Double.parseDouble(values[3].trim());
+                        String category = values[4].trim();
+                        String image = values[5].trim();
 
-                        menuItems.add(new MenuItem(name, price, description, calories));
+                        menuItems.add(new MenuItem(name, price, description, calories, category, image));
 
                     } catch (NumberFormatException e) {
                         System.err.println("Invalid price in line: " + line);
