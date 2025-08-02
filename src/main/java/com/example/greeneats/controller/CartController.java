@@ -1,4 +1,0 @@
-package com.example.greeneats.controller;
-
-public class CartController {
-}

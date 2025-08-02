@@ -1,4 +1,6 @@
-package com.example.greeneats.model;
+package com.example.greeneats.utils;
+
+import com.example.greeneats.model.CartItem;
 
 import java.util.ArrayList;
 import java.util.List;

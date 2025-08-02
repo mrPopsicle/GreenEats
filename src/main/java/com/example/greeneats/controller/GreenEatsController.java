@@ -167,6 +167,18 @@ public class GreenEatsController implements Initializable {
     }
 
     @FXML
+    protected void onCartClicked(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(GreenEatsApp.class.getResource("CheckOutPage.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Check out");
+        popupStage.setScene(new Scene(root));
+        popupStage.setResizable(false);
+        popupStage.showAndWait();
+    }
+
+    @FXML
     protected void onNutritionTrackerClicked(ActionEvent event) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource("/com/example/greeneats/DashBoard.fxml"));
         contentPane.setContent(pane);

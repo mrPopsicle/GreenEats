@@ -1,14 +1,11 @@
 package com.example.greeneats.controller;
 
 import com.example.greeneats.model.CartItem;
-import com.example.greeneats.model.CartManager;
 import com.example.greeneats.model.MenuItem;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class AddToCartController {
 
